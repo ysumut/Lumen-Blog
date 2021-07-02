@@ -1,7 +1,8 @@
 /vendor
 /.idea
+/storage/*.key
 Homestead.json
 Homestead.yaml
 .env
 .phpunit.result.cache
-/storage/*.key
+.rnd
