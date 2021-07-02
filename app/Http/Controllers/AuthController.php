@@ -13,13 +13,13 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'password' => 'required|string|max:255'
         ]);
         if($validator->fails())
             return (new Collection([]))->add(false, $validator->errors()->all());
 
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('email', $request->email)->first();
 
         if($user && Hash::check($request->password, $user->password))
             return (new Collection([]))->add(true, ['Successfully logged in!']);
@@ -30,15 +30,15 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'full_name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
-            'password' => 'required|string|max:255'
+            'email' => 'required|string|max:255|unique:users',
+            'username' => 'required|string|min:6|max:255',
+            'password' => 'required|string|min:6|max:32'
         ]);
         if($validator->fails())
             return (new Collection([]))->add(false, $validator->errors()->all());
 
         $user = new User();
-        $user->full_name = $request->full_name;
+        $user->email = $request->email;
         $user->username = $request->username;
         $user->password = Hash::make($request->password);
         $user->save();

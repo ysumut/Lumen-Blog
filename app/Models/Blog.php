@@ -10,6 +10,6 @@ class Blog extends Model
     use HasFactory;
 
     public function creator() {
-        return $this->hasOne(User::class,'id','user_id')->select('id','full_name','username');
+        return $this->hasOne(User::class,'id','user_id')->select('id','email','username');
     }
 }
