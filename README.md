@@ -1,4 +1,4 @@
-# Users React App
+# Lumen Blog
 
 ## Used in this project:
 * Laravel Lumen 8
