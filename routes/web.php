@@ -19,10 +19,13 @@ $router->get('/', function () use ($router) {
 
 // API
 $router->group(['prefix' => 'api'], function () use ($router) {
-    // Auth
+    // Auth routes
     $router->post('auth/login', 'AuthController@login');
     $router->post('auth/register', 'AuthController@register');
 
-    // Blog
-    $router->get('blog', 'BlogController@index');
+    // Passport Authentication
+    $router->group(['middleware' => 'auth:api'], function () use ($router) {
+        // Blog
+        $router->get('blog', 'BlogController@index');
+    });
 });
