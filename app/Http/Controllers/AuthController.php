@@ -19,10 +19,13 @@ class AuthController extends Controller
         if($validator->fails())
             return (new Collection([]))->add(false, $validator->errors()->all());
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::query()->where('email','=', $request->email)->first();
 
-        if($user && Hash::check($request->password, $user->password))
-            return (new Collection([]))->add(true, ['Successfully logged in!']);
+        if($user && Hash::check($request->password, $user->password)) {
+            return (new Collection([
+                'token' => $user->createToken('Blog')->accessToken
+            ]))->add(true, ['Successfully logged in!']);
+        }
 
         return (new Collection([]))->add(false, ['Username or password is wrong!']);
     }
