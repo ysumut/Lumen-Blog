@@ -10,7 +10,12 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::with('creator')->get();
+        foreach ($blogs as $b) {
+            unset($b->user_id);
+            unset($b->creator->id);
+        }
+
         return (new Collection($blogs))->add(true, ['Blogs listed.']);
     }
 }
