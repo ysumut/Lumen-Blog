@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Blog;
+use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BlogFactory extends Factory
+class PostFactory extends Factory
 {
-    protected $model = Blog::class;
+    protected $model = Post::class;
 
     public function definition(): array
     {

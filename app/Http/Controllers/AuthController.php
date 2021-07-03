@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         if($user && Hash::check($request->password, $user->password)) {
             return (new Collection([
-                'token' => $user->createToken('Blog')->accessToken
+                'token' => $user->createToken('Post')->accessToken
             ]))->add(true, ['Successfully logged in!']);
         }
 
