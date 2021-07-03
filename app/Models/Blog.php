@@ -12,4 +12,8 @@ class Blog extends Model
     public function creator() {
         return $this->hasOne(User::class,'id','user_id')->select('id','email','username');
     }
+
+    public function category() {
+        return $this->hasOne(Category::class,'id','category_id')->select('id','name');
+    }
 }

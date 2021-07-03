@@ -25,6 +25,8 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     // Passport Authentication
     $router->group(['middleware' => 'auth:api'], function () use ($router) {
+        // Category
+        $router->get('category', 'CategoryController@index');
         // Blog
         $router->get('blog', 'BlogController@index');
     });

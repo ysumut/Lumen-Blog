@@ -13,7 +13,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
     	return [
-    	    'name' => $this->faker->text(15),
+    	    'name' => $this->faker->unique()->text(15),
     	    'parent_id' => 0,
     	    'rank' => self::$rank++
     	];
