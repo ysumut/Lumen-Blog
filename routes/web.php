@@ -29,6 +29,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->get('category', 'CategoryController@index');
         // Post
         $router->get('post', 'PostController@index');
+        $router->get('post/{id}', 'PostController@show');
         $router->post('post', 'PostController@store');
         $router->put('post/{id}', 'PostController@update');
         $router->delete('post/{id}', 'PostController@destroy');

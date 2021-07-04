@@ -13,13 +13,30 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::with('creator','category')->paginate();
+        $posts = Post::with('creator','category');
+        if($request->categoryIDs)
+            $posts = $posts->whereIn('category_id', explode(',', $request->categoryIDs));
+
+        $posts = $posts->paginate();
         foreach ($posts as $p) {
             unset($p->user_id);
             unset($p->category_id);
         }
 
         return (new PaginateCollection($posts))->additional([true, ['Posts listed.']]);
+    }
+
+    public function show($id)
+    {
+        $post = Post::with('creator','category')->find($id);
+        if($post) {
+            unset($post->user_id);
+            unset($post->category_id);
+            return (new Collection($post))->add(true, ['Post listed.']);
+        }
+        else {
+            return (new Collection($post))->add(false, ['Post not found!']);
+        }
     }
 
     public function store(Request $request) {
