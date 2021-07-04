@@ -24,4 +24,5 @@ $ php artisan serve
 ```
 
 ## Note:
-* Password for all fake users is 'demo123'
+* [Postman Collection](https://www.postman.com/collections/b03d3372aa7e457564b3)
+* Password for all fake users is <b>demo123</b>
