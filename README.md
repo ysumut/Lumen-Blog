@@ -1,4 +1,6 @@
 # Lumen Blog
+* [Demo Link](https://lumen-blog.herokuapp.com)
+* [Postman Collection](https://www.postman.com/collections/b03d3372aa7e457564b3)
 
 ## Used in this project:
 * Laravel Lumen 8
@@ -24,5 +26,4 @@ $ php artisan serve
 ```
 
 ## Note:
-* [Postman Collection](https://www.postman.com/collections/b03d3372aa7e457564b3)
 * Password for all fake users is <b>demo123</b>
