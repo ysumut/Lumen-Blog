@@ -27,7 +27,7 @@ class AuthController extends Controller
             ]))->add(true, ['Successfully logged in!']);
         }
 
-        return (new Collection([]))->add(false, ['Username or password is wrong!']);
+        return (new Collection([]))->add(false, ['Email or password is wrong!']);
     }
 
     public function register(Request $request)

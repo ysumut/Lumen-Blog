@@ -1,4 +1,4 @@
-# Lumen Blog
+# Lumen Blog Rest API
 * [Demo Link](https://lumen-blog.herokuapp.com)
 * [Postman Collection](https://www.postman.com/collections/b03d3372aa7e457564b3)
 
